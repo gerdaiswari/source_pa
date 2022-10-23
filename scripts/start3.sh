@@ -1,3 +1,4 @@
 #!/bin/sh
 
-php artisan serve --host=172.17.0.10 --port=9001 & php artisan storage:link
+ip44="$(ip -f inet addr show eth0 | sed -En -e 's/.*inet ([0-9.]+).*/\1/p')"
+php artisan serve --host=$ip44 --port=80 & php artisan storage:link
