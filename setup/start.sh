@@ -1,6 +1,6 @@
 #!/bin/sh
 
-ln -s /dev/stdout /var/log/php8.1/error.log
+ln -s /dev/stdout /var/log/php81/error.log
 ln -s /dev/stdout /var/log/nginx/access.log
 ln -s /dev/stdout /var/log/nginx/error.log
 
@@ -14,3 +14,7 @@ fi
 if [ ! -f /etc/phpmyadmin/config.user.inc.php ]; then
     touch /etc/phpmyadmin/config.user.inc.php
 fi
+
+php-fpm81
+
+exec "$@"
