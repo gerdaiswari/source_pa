@@ -1,6 +1,13 @@
 #!/bin/sh
 
 #ln -s /dev/stdout /var/log/php8/error.log
+#ln -s /dev/stdout /var/log/nginx/access.log
+#ln -s /dev/stdout /var/log/nginx/error.log
+
+#php-fpm8
+#exec "$@"
+
+ln -s /dev/stdout /var/log/php7/error.log
 ln -s /dev/stdout /var/log/nginx/access.log
 ln -s /dev/stdout /var/log/nginx/error.log
 
@@ -14,7 +21,3 @@ fi
 if [ ! -f /etc/phpmyadmin/config.user.inc.php ]; then
     touch /etc/phpmyadmin/config.user.inc.php
 fi
-
-#php-fpm8
-
-#exec "$@"
